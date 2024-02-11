@@ -46,19 +46,9 @@ namespace MeidoPathFixer
 			{
 				foreach (var line in File.ReadAllLines(path + "\\update.lst"))
 				{
-					if (line.Contains("COM3D2x64.exe,"))
-					{
-						var version = line.Replace("COM3D2x64.exe,", "");
-
-						if (int.Parse(version) >= 30000)
-						{
-							return true;
-						}
-						else
-						{
-							return false;
-						}
-					}
+					if (!line.Contains("COM3D2x64.exe,")) continue;
+					var version = line.Replace("COM3D2x64.exe,", "");
+					return int.Parse(version) >= 30000;
 				}
 
 				Console.WriteLine("We failed to find the appropriate line in the update.lst file! This is an issue you should look into...");
