@@ -1,4 +1,4 @@
-# MeidoPathFixerFramework
+# MeidoPathFixer
 
 Works for both CM, COM, And COM 2.5
 
